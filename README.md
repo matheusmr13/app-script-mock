@@ -1,2 +1,2 @@
 # app-script-mock
-Mock objects to Google App Script
+Mock Google App Script's objects. Make developing and testing GAS simple.
