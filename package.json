@@ -1,0 +1,22 @@
+{
+  "name": "app-script-mock",
+  "version": "1.0.0",
+  "description": "Test your Google App Script",
+  "author": "Matheus Martins do Rego",
+  "license": "APACHE",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:matheusmr13/app-script-mock.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "coveralls": "^2.11.12",
+    "mocha-lcov-reporter": "^1.2.0"
+  }
+}
