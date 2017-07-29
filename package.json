@@ -4,21 +4,23 @@
   "description": "Test your Google App Script",
   "author": "Matheus Martins do Rego",
   "license": "APACHE",
-  "main": "./src/index.js",
+  "main": "./index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:matheusmr13/app-script-mock.git"
   },
   "scripts": {
-    "test": "mocha",
-    "build": "webpack"
+    "compile": "babel --presets env --out-file index.js src/",
+    "test": "mocha"
   },
   "dependencies": {},
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.24.1",
     "chai": "^3.5.0",
     "coveralls": "^2.11.12",
     "mocha": "^2.5.3",
-    "mocha-lcov-reporter": "^1.2.0",
-    "webpack": "^3.4.1"
+    "mocha-lcov-reporter": "^1.2.0"
   }
 }
