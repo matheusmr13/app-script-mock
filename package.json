@@ -4,18 +4,21 @@
   "description": "Test your Google App Script",
   "author": "Matheus Martins do Rego",
   "license": "APACHE",
+  "main": "./src/index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:matheusmr13/app-script-mock.git"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "build": "webpack"
   },
   "dependencies": {},
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.5.3",
     "coveralls": "^2.11.12",
-    "mocha-lcov-reporter": "^1.2.0"
+    "mocha": "^2.5.3",
+    "mocha-lcov-reporter": "^1.2.0",
+    "webpack": "^3.4.1"
   }
 }
