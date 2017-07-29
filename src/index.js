@@ -1,9 +1,11 @@
 import DriveApp from './DriveApp';
 import SpreadsheetApp from './SpreadsheetApp';
 
-export default extendGlobal = (globals) => {
-	console.info(DriveApp)
+const extendGlobal = (globals) => {
 	Object.assign(globals, {
-		DriveApp
+		DriveApp,
+		SpreadsheetApp
 	})
 }
+
+export default extendGlobal;

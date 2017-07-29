@@ -65,32 +65,45 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DriveApp__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DriveApp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__DriveApp__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SpreadsheetApp__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SpreadsheetApp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__SpreadsheetApp__);
 
 
-
-/* harmony default export */ __webpack_exports__["default"] = (extendGlobal = (globals) => {
-	console.info(__WEBPACK_IMPORTED_MODULE_0__DriveApp___default.a)
-	Object.assign(globals, {
-		DriveApp: __WEBPACK_IMPORTED_MODULE_0__DriveApp___default.a
-	})
+Object.defineProperty(exports, "__esModule", {
+	value: true
 });
+
+var _DriveApp = __webpack_require__(1);
+
+var _DriveApp2 = _interopRequireDefault(_DriveApp);
+
+var _SpreadsheetApp = __webpack_require__(4);
+
+var _SpreadsheetApp2 = _interopRequireDefault(_SpreadsheetApp);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var extendGlobal = function extendGlobal(globals) {
+	Object.assign(globals, {
+		DriveApp: _DriveApp2.default,
+		SpreadsheetApp: _SpreadsheetApp2.default
+	});
+};
+
+exports.default = extendGlobal;
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
 var File = __webpack_require__(2).File;
 var Folder = __webpack_require__(3).Folder;
 
-var DriveApp = function () {
+var DriveApp = function DriveApp() {
 	return {
 		Access: {
 			ANYONE: 'ANYONE',
@@ -106,22 +119,24 @@ var DriveApp = function () {
 			OWNER: 'OWNER',
 			VIEW: 'VIEW'
 		},
-		getFileById: function (id) {
+		getFileById: function getFileById(id) {
 			return new File(id);
 		},
-		getFolderById: function (id) {
+		getFolderById: function getFolderById(id) {
 			return new Folder(id);
 		}
 	};
 };
 exports.DriveApp = DriveApp;
 
-
 /***/ }),
 /* 2 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-var File = function (newId) {
+"use strict";
+
+
+var File = function File(newId) {
 	var properties = {
 		id: newId || '',
 		name: ''
@@ -153,14 +168,16 @@ var File = function (newId) {
 
 exports.File = File;
 
-
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-var Folder = function (newId) {
+"use strict";
+
+
+var Folder = function Folder(newId) {
 	var files = [],
-		id = newId || '';
+	    id = newId || '';
 	this.getId = function () {
 		return id;
 	};
@@ -174,16 +191,18 @@ var Folder = function (newId) {
 
 exports.Folder = Folder;
 
-
 /***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
 var Spreadsheet = __webpack_require__(5).Spreadsheet;
-var SpreadsheetApp = function (mock) {
+var SpreadsheetApp = function SpreadsheetApp(mock) {
 	var _mock = mock;
 	return {
-		_setupMock: function(mock) {
+		_setupMock: function _setupMock(mock) {
 			_mock = mock;
 		},
 		BorderStyle: {
@@ -191,21 +210,23 @@ var SpreadsheetApp = function (mock) {
 			DASHED: 'DASHED',
 			SOLID: 'SOLID'
 		},
-		open: function (file) {
+		open: function open(file) {
 			return new Spreadsheet(_mock || file);
 		}
-	}
+	};
 };
 
 exports.SpreadsheetApp = SpreadsheetApp;
-
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Sheet = __webpack_require__(6).Sheet
-var Spreadsheet = function (mock) {
+"use strict";
+
+
+var Sheet = __webpack_require__(6).Sheet;
+var Spreadsheet = function Spreadsheet(mock) {
 	var sheets = [new Sheet(mock)];
 
 	this.getSheets = function () {
@@ -214,31 +235,30 @@ var Spreadsheet = function (mock) {
 };
 exports.Spreadsheet = Spreadsheet;
 
-
 /***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
 var Range = __webpack_require__(7).Range;
 var Cell = __webpack_require__(8).Cell;
 var Formulas = __webpack_require__(9).Formulas;
-var Sheet = function (myMatrix) {
-	var matrix = myMatrix || [
-		[]
-	];
+var Sheet = function Sheet(myMatrix) {
+	var matrix = myMatrix || [[]];
 
-	var setupMatrixLinks = function () {
+	var setupMatrixLinks = function setupMatrixLinks() {
 		for (var i = 0; i < matrix.length; i++) {
 			for (var j = 0; j < matrix[i].length; j++) {
 				matrix[i][j]._configureLinks({
 					top: i != 0 ? matrix[i - 1][j] : undefined,
-					right: j != (matrix[i].length - 1) ? matrix[i][j + 1] : undefined,
-					bottom: i != (matrix.length - 1) ? matrix[i + 1][j] : undefined,
+					right: j != matrix[i].length - 1 ? matrix[i][j + 1] : undefined,
+					bottom: i != matrix.length - 1 ? matrix[i + 1][j] : undefined,
 					left: j != 0 ? matrix[i][j - 1] : undefined
 				});
 			}
 		}
-
 	};
 
 	setupMatrixLinks();
@@ -248,9 +268,7 @@ var Sheet = function (myMatrix) {
 		if (!row || !col || row <= 0 || col <= 0 || lines > matrix.length || cols > matrix[0].length) {
 			throw new Error('Invalid params to range.');
 		}
-		var newMatrix = [
-			[]
-		];
+		var newMatrix = [[]];
 		for (var i = 0; i < lines; i++) {
 			newMatrix[i] = [];
 			for (var j = 0; j < cols; j++) {
@@ -260,7 +278,7 @@ var Sheet = function (myMatrix) {
 		return new Range(newMatrix);
 	};
 
-	var createRow = function (qty) {
+	var createRow = function createRow(qty) {
 		var row = [];
 		for (var i = 0; i < qty; i++) {
 			row.push(new Cell(''));
@@ -295,9 +313,9 @@ var Sheet = function (myMatrix) {
 		if (cell.getFormula() && !cell.getValue()) {
 			cell.setFormula(cell.getFormula().trim());
 			var parts = cell.getFormula().split('('),
-				formula = parts[0].substring(1),
-				params = parts[1].substring(0, parts[1].length - 1).split(','),
-				formulaFunction = formulas[formula];
+			    formula = parts[0].substring(1),
+			    params = parts[1].substring(0, parts[1].length - 1).split(','),
+			    formulaFunction = formulas[formula];
 			if (!formulaFunction) {
 				throw new Error('Not testable function: ' + formula);
 			} else {
@@ -319,15 +337,15 @@ var Sheet = function (myMatrix) {
 
 exports.Sheet = Sheet;
 
-
 /***/ }),
 /* 7 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-var Range = function (myMatrix) {
-	var matrix = myMatrix || [
-		[]
-	];
+"use strict";
+
+
+var Range = function Range(myMatrix) {
+	var matrix = myMatrix || [[]];
 	this.getValues = function () {
 		var values = [];
 		for (var i = 0; i < matrix.length; i++) {
@@ -374,7 +392,7 @@ var Range = function (myMatrix) {
 		setSomeValue(color, 'BorderColor');
 		setSomeValue(style, 'BorderStyle');
 	};
-	var setSomeValue = function (value, propertie) {
+	var setSomeValue = function setSomeValue(value, propertie) {
 		for (var i = 0; i < matrix.length; i++) {
 			for (var j = 0; j < matrix[0].length; j++) {
 				matrix[i][j]['set' + propertie](value);
@@ -389,26 +407,28 @@ var Range = function (myMatrix) {
 
 exports.Range = Range;
 
-
 /***/ }),
 /* 8 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-var Cell = function (firstValue) {
+"use strict";
+
+
+var Cell = function Cell(firstValue) {
 	var value = firstValue || '',
-		formula = '',
-		backgroundColor = 'default',
-		borderStyle = 'default',
-		fontColor = 'default',
-		fontSize = 'default',
-		borderColor = 'default';
+	    formula = '',
+	    backgroundColor = 'default',
+	    borderStyle = 'default',
+	    fontColor = 'default',
+	    fontSize = 'default',
+	    borderColor = 'default';
 
 	var links = {};
 
 	this.getValue = function () {
 		return value + '';
 	};
-	this.getNumberValue = function() {
+	this.getNumberValue = function () {
 		if (isNaN(value)) {
 			return 0;
 		} else {
@@ -474,22 +494,24 @@ var Cell = function (firstValue) {
 
 exports.Cell = Cell;
 
-
 /***/ }),
 /* 9 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-var Formulas = function (sheet) {
+"use strict";
+
+
+var Formulas = function Formulas(sheet) {
 
 	return {
-		SUM: function (params) {
+		SUM: function SUM(params) {
 			var sum = 0,
-				range = sheet.getRange(1,1,sheet.getMaxRows(),sheet.getMaxColumns());
+			    range = sheet.getRange(1, 1, sheet.getMaxRows(), sheet.getMaxColumns());
 
 			if (params) {
 				var oldParams = params;
-				params = []
-				for (var i =0;i<oldParams.length;i++) {
+				params = [];
+				for (var i = 0; i < oldParams.length; i++) {
 					if (!isNaN(oldParams[i])) {
 						sum += parseInt(oldParams[i]);
 					} else {
@@ -514,11 +536,11 @@ var Formulas = function (sheet) {
 			}
 			return sum;
 		}
-	}
+	};
 };
 
 exports.Formulas = Formulas;
 
-
 /***/ })
 /******/ ]);
+//# sourceMappingURL=index.bundle.js.map
