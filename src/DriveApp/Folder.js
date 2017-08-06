@@ -12,4 +12,4 @@ var Folder = function (newId) {
 	};
 };
 
-exports.Folder = Folder;
+export default Folder;

@@ -28,4 +28,4 @@ var File = function (newId) {
 	};
 };
 
-exports.File = File;
+export default File;

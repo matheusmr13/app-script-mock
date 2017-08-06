@@ -1,5 +1,5 @@
-var File = require('./DriveApp/File.js').File;
-var Folder = require('./DriveApp/Folder.js').Folder;
+import File from './DriveApp/File.js';
+import Folder from './DriveApp/Folder.js';
 
 var DriveApp = function () {
 	return {
@@ -25,4 +25,5 @@ var DriveApp = function () {
 		}
 	};
 };
-exports.DriveApp = DriveApp;
+
+export default DriveApp;
