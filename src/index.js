@@ -1,5 +1,5 @@
-import DriveApp from './DriveApp';
-import SpreadsheetApp from './SpreadsheetApp';
+const DriveApp = require('./DriveApp');
+const SpreadsheetApp = require('./SpreadsheetApp');
 
 const extendGlobal = (globals) => {
 	Object.assign(globals, {
@@ -8,4 +8,4 @@ const extendGlobal = (globals) => {
 	})
 }
 
-export default extendGlobal;
+module.exports = extendGlobal;

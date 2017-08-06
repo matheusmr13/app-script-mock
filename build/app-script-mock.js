@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define("app-script-mock", [], factory);
+	else if(typeof exports === 'object')
+		exports["app-script-mock"] = factory();
+	else
+		root["app-script-mock"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -70,28 +80,17 @@
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _DriveApp = __webpack_require__(1);
-
-var _DriveApp2 = _interopRequireDefault(_DriveApp);
-
-var _SpreadsheetApp = __webpack_require__(4);
-
-var _SpreadsheetApp2 = _interopRequireDefault(_SpreadsheetApp);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var DriveApp = __webpack_require__(1);
+var SpreadsheetApp = __webpack_require__(4);
 
 var extendGlobal = function extendGlobal(globals) {
 	Object.assign(globals, {
-		DriveApp: _DriveApp2.default,
-		SpreadsheetApp: _SpreadsheetApp2.default
+		DriveApp: DriveApp,
+		SpreadsheetApp: SpreadsheetApp
 	});
 };
 
-exports.default = extendGlobal;
+module.exports = extendGlobal;
 
 /***/ }),
 /* 1 */
@@ -543,4 +542,5 @@ exports.Formulas = Formulas;
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=index.bundle.js.map
+});
+//# sourceMappingURL=app-script-mock.js.map
