@@ -1,5 +1,4 @@
 var extendGlobal = require('build/app-script-mock.js')
-console.info(extendGlobal)
 var assert = require('assert')
 
 describe('Globals being import correcly', () => {

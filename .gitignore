@@ -1,3 +1,4 @@
 node_modules
 .jsbeautifyrc
 .coveralls.yml
+npm-debug.log
