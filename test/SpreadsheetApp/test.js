@@ -1,8 +1,16 @@
-var appScript = require('build/app-script-mock.js')
-console.info(appScript)
+var extendGlobal = require('build/app-script-mock.js')
+console.info(extendGlobal)
+var assert = require('assert')
 
-describe('test',function() {
-	it('teste',function() {
-		assert(-1, [1,3,4].indexOf(2));
+describe('Globals being import correcly', () => {
+	before(function (){
+		extendGlobal(global)
+	});
+	describe('DriveApp', () => {
+		it('driveapp', () => {
+			assert.equal('object', typeof global.DriveApp)
+			assert.equal('object', typeof global.SpreadsheetApp)
+			assert.equal('undefined', typeof global.hue)
+		})
 	})
 });
