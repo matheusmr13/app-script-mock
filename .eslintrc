@@ -9,7 +9,8 @@
 		"indent": [2, "tab"],
 		"import/no-dynamic-require": 0,
 		"no-tabs": 0,
-		"comma-dangle": ["error", "never"]
+		"comma-dangle": ["error", "never"],
+		"import/no-extraneous-dependencies": 0
 	},
 	"settings": {
 		"import/resolver": {

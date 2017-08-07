@@ -1,8 +1,10 @@
+const glob = require('glob');
+
 const libraryName = 'test';
 const outputFile = `${libraryName}.js`;
 
 const config = {
-	entry: `${__dirname}/test/test.js`,
+	entry: glob.sync(`${__dirname}/test/**/*.js`),
 	devtool: 'source-map',
 	output: {
 		path: `${__dirname}/build`,
