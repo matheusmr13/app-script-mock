@@ -4,10 +4,12 @@ class SpreadsheetApp {
 	constructor(mock) {
 		this.mock = mock;
 	}
-	static BorderStyle = {
-		DOTTED: 'DOTTED',
-		DASHED: 'DASHED',
-		SOLID: 'SOLID'
+	static get BorderStyle() {
+		return {
+			DOTTED: 'DOTTED',
+			DASHED: 'DASHED',
+			SOLID: 'SOLID'
+		};
 	}
 
 	static _setupMock(mock) {
