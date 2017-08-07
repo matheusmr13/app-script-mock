@@ -1,15 +1,20 @@
-var Folder = function (newId) {
-	var files = [],
-		id = newId || '';
-	this.getId = function () {
-		return id;
-	};
-	this.addFile = function (file) {
-		files.push(file);
-	};
-	this.getFiles = function () {
-		return files;
-	};
-};
+class Folder {
+	constructor(id) {
+		this.id = id;
+		this.files = [];
+	}
+
+	getId() {
+		return this.id;
+	}
+
+	addFile(file) {
+		this.files.push(file);
+	}
+
+	getFiles() {
+		return this.files;
+	}
+}
 
 export default Folder;

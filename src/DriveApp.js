@@ -1,29 +1,30 @@
-import File from './DriveApp/File.js';
-import Folder from './DriveApp/Folder.js';
+import File from './DriveApp/File';
+import Folder from './DriveApp/Folder';
 
-var DriveApp = function () {
-	return {
-		Access: {
-			ANYONE: 'ANYONE',
-			ANYONE_WITH_LINK: 'ANYONE_WITH_LINK',
-			DOMAIN: 'DOMAIN',
-			DOMAIN_WITH_LINK: 'DOMAIN_WITH_LINK',
-			PRIVATE: 'PRIVATE'
-		},
-		Permission: {
-			COMMENT: 'COMMENT',
-			EDIT: 'EDIT',
-			NONE: 'NONE',
-			OWNER: 'OWNER',
-			VIEW: 'VIEW'
-		},
-		getFileById: function (id) {
-			return new File(id);
-		},
-		getFolderById: function (id) {
-			return new Folder(id);
-		}
-	};
-};
+class DriveApp {
+	static Access = {
+		ANYONE: 'ANYONE',
+		ANYONE_WITH_LINK: 'ANYONE_WITH_LINK',
+		DOMAIN: 'DOMAIN',
+		DOMAIN_WITH_LINK: 'DOMAIN_WITH_LINK',
+		PRIVATE: 'PRIVATE'
+	}
+
+	static Permission = {
+		COMMENT: 'COMMENT',
+		EDIT: 'EDIT',
+		NONE: 'NONE',
+		OWNER: 'OWNER',
+		VIEW: 'VIEW'
+	}
+
+	static getFileById (id) {
+		return new File(id);
+	}
+
+	static getFolderById (id) {
+		return new Folder(id);
+	}
+}
 
 export default DriveApp;

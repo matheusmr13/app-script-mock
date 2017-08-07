@@ -1,31 +1,29 @@
-var File = function (newId) {
-	var properties = {
-		id: newId || '',
-		name: ''
-	};
+class File {
+	constructor(id) {
+		this.id = id;
+	}
 
-	this.setSharing = function () {};
-	this.getId = function () {
-		return properties.id;
-	};
-	this.makeCopy = function (name, folder) {
-		var newFile = new File();
-		newFile._setProperties(properties);
-		newFile.setName(name);
+	setSharing() {
+		console.info(`Not implemented${this}`);
+	}
+
+	getId() {
+		return this.id;
+	}
+
+	makeCopy(name, folder) {
+		const newFile = Object.assign(Object.create(Object.getPrototypeOf(this)), this);
 		folder.addFile(newFile);
 		return newFile;
-	};
-	this.getName = function () {
-		return properties.name;
-	};
-	this.setName = function (newName) {
-		properties.name = newName;
-	};
-	this._setProperties = function (newProperties) {
-		for (var propertie in newProperties) {
-			properties[propertie] = newProperties[propertie];
-		}
-	};
-};
+	}
+
+	getName() {
+		return this.name;
+	}
+
+	setName(name) {
+		this.name = name;
+	}
+}
 
 export default File;

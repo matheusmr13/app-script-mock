@@ -1,39 +1,41 @@
-var Formulas = function (sheet) {
+class Formulas {
+	constructor(sheet) {
+		this.sheet = sheet;
+	}
 
-	return {
-		SUM: function (params) {
-			var sum = 0,
-				range = sheet.getRange(1,1,sheet.getMaxRows(),sheet.getMaxColumns());
+	SUM(params) {
+		let sum = 0;
+		const notNumbersParams = [];
 
-			if (params) {
-				var oldParams = params;
-				params = []
-				for (var i =0;i<oldParams.length;i++) {
-					if (!isNaN(oldParams[i])) {
-						sum += parseInt(oldParams[i]);
-					} else {
-						params.push(oldParams[i]);
-					}
+		if (params) {
+			params.forEach((param) => {
+				if (!isNaN(param)) {
+					sum += parseInt(param, 10);
+				} else {
+					notNumbersParams.push(param);
 				}
-			}
+			});
+		}
 
-			if (!params.length) {
-				return sum;
-			}
-			if (typeof params == 'string' && params && isNaN(params[0])) {
-				var parts = number1.split(':');
-				range = sheet.getRange(params[0], params[1]);
-			}
-			var matrix = range.getCells();
-
-			for (var i = 0; i < matrix.length; i++) {
-				for (var j = 0; j < matrix[i].length; j++) {
-					sum += matrix[i][j].getNumberValue();
-				}
-			}
+		if (!notNumbersParams.length) {
 			return sum;
 		}
+
+		if (notNumbersParams) {
+			const matrix = this.sheet.getCells();
+			notNumbersParams.forEach((param) => {
+				const parts = param.split(':');
+				range = this.sheet.getRange(parts[0], parts[1]);
+				matrix.forEach((line) => {
+					line.forEach((column) => {
+						sum += column.getNumberValue();
+					});
+				});
+			});
+		}
+
+		return sum;
 	}
 };
 
-exports.Formulas = Formulas;
+export default Formulas;
