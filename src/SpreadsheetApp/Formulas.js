@@ -22,20 +22,18 @@ class Formulas {
 		}
 
 		if (notNumbersParams) {
-			const matrix = this.sheet.getCells();
 			notNumbersParams.forEach((param) => {
 				const parts = param.split(':');
-				range = this.sheet.getRange(parts[0], parts[1]);
-				matrix.forEach((line) => {
+				const range = this.sheet.getRange(parts[0], parts[1]);
+				range.getCells().forEach((line) => {
 					line.forEach((column) => {
 						sum += column.getNumberValue();
 					});
 				});
 			});
 		}
-
 		return sum;
 	}
-};
+}
 
 export default Formulas;

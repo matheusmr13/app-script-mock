@@ -1,64 +1,35 @@
-var Range = function (myMatrix) {
-	var matrix = myMatrix || [
-		[]
-	];
-	this.getValues = function () {
-		var values = [];
-		for (var i = 0; i < matrix.length; i++) {
-			values[i] = [];
-			for (var j = 0; j < matrix[i].length; j++) {
-				values[i][j] = matrix[i][j].getValue();
-			}
-		}
+class Range {
+	constructor(matrix) {
+		this.matrix = matrix;
+	}
+
+	getValues() {
+		const values = []
+		this.matrix.forEach(line =>
+			line.forEach(cell =>
+				values.push(cell.getValue())
+			)
+		);
 		return values;
-	};
+	}
 
-	this._getCells = function () {
-		return matrix;
-	};
-	this.copyTo = function (anotherRange) {
-		var firstCell = anotherRange._getCells()[0][0];
-		var actualLineCell = firstCell;
-		for (var i = 0; i < matrix.length; i++) {
-			actualCell = actualLineCell;
-			for (var j = 0; j < matrix[0].length; j++) {
-				actualCell.setValue(matrix[i][j].getValue());
-				actualCell = actualCell._right();
-			}
-			actualLineCell = actualLineCell._bottom();
-		}
-	};
+	setBackground(background) { this.setSomeValue(background, 'Background'); }
+	setValue(value) { this.setSomeValue(value, 'Value'); }
+	setFormula(formula) { this.setSomeValue(formula, 'Formula'); }
+	setFontSize(fontSize) { this.setSomeValue(fontSize, 'FontSize'); }
+	setFontColor(fontColor) { this.setSomeValue(fontColor, 'FontColor'); }
+	setBorder(top, left, bottom, right, vertical, horizontal, color, style)  {
+		this.setSomeValue(color, 'BorderColor');
+		this.setSomeValue(style, 'BorderStyle');
+	}
 
-	this.setBackground = function (background) {
-		setSomeValue(background, 'Background');
-	};
-	this.setValue = function (value) {
-		setSomeValue(value, 'Value');
-	};
-	this.setFormula = function (formula) {
-		setSomeValue(formula, 'Formula');
-	};
-	this.setFontSize = function (newFontSize) {
-		setSomeValue(newFontSize, 'FontSize');
-	};
-	this.setFontColor = function (color) {
-		setSomeValue(color, 'FontColor');
-	};
-	this.setBorder = function (top, left, bottom, right, vertical, horizontal, color, style) {
-		setSomeValue(color, 'BorderColor');
-		setSomeValue(style, 'BorderStyle');
-	};
-	var setSomeValue = function (value, propertie) {
-		for (var i = 0; i < matrix.length; i++) {
-			for (var j = 0; j < matrix[0].length; j++) {
-				matrix[i][j]['set' + propertie](value);
-			}
-		}
-	};
+	setSomeValue(value, propertie) {
+		this.matrix.forEach((line) => {
+			line.forEach((cell) => {
+				cell[`set${propertie}`](value);
+			});
+		});
+	}
+}
 
-	this.getCells = function () {
-		return matrix;
-	};
-};
-
-exports.Range = Range;
+export default Range;

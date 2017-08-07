@@ -1,9 +1,12 @@
-var Sheet = require('./Sheet.js').Sheet
-var Spreadsheet = function (mock) {
-	var sheets = [new Sheet(mock)];
+import Sheet from './Sheet';
 
-	this.getSheets = function () {
-		return sheets;
-	};
-};
-exports.Spreadsheet = Spreadsheet;
+class Spreadsheet {
+	constructor(mock) {
+		this.sheets = [new Sheet(mock)];
+	}
+
+	getSheets() {
+		return this.sheets;
+	}
+}
+export default Spreadsheet;
