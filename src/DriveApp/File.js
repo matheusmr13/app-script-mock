@@ -3,8 +3,9 @@ class File {
 		this.id = id;
 	}
 
-	setSharing() {
-		console.info(`Not implemented${this}`);
+	setSharing(accessType, permissionType) {
+		this.accessType = accessType;
+		this.permissionType = permissionType;
 	}
 
 	getId() {
