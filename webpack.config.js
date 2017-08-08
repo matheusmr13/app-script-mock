@@ -1,3 +1,5 @@
+const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
+
 const libraryName = 'app-script-mock';
 const outputFile = `${libraryName}.js`;
 
@@ -19,7 +21,10 @@ const config = {
 				exclude: /(node_modules|bower_components)/
 			}
 		]
-	}
+	},
+	plugins: [
+		new FlowBabelWebpackPlugin()
+	]
 };
 
 module.exports = config;

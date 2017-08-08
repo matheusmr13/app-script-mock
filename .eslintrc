@@ -1,5 +1,5 @@
 {
-	"extends": "airbnb/base",
+	"extends": ["airbnb/base", "airbnb-flow"],
 	"parser": "babel-eslint",
 	"rules": {
 		"indent": [2, "tab"],

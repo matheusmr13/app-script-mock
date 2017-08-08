@@ -1,6 +1,6 @@
-import Test from './../baseTest';
+import test from './../baseTest';
 
-Test('DriveApp', (assert) => {
+test('DriveApp', (assert) => {
 	it('should return file with specified id', () => {
 		const file = DriveApp.getFileById('myFileId');
 		assert.equal('myFileId', file.getId());

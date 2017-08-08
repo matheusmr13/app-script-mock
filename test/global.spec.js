@@ -1,6 +1,6 @@
-import Test from './baseTest';
+import test from './baseTest';
 
-Test('Global scope', (assert) => {
+test('Global scope', (assert) => {
 	it('should import DriveApp to global test scope', () => {
 		assert.notEqual('undefined', typeof DriveApp);
 	});

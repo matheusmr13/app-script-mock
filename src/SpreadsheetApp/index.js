@@ -1,4 +1,4 @@
-import Spreadsheet from './SpreadsheetApp/Spreadsheet';
+import Spreadsheet from './Spreadsheet';
 
 class SpreadsheetApp {
 	constructor(mock) {
