@@ -6,6 +6,7 @@
 		"import/no-dynamic-require": 0,
 		"no-tabs": 0,
 		"comma-dangle": ["error", "never"],
-		"import/no-extraneous-dependencies": 0
+		"import/no-extraneous-dependencies": 0,
+		"no-underscore-dangle": 0
 	}
 }

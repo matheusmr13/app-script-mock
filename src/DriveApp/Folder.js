@@ -1,6 +1,9 @@
+import uuid from './../utils/uuid';
+
 class Folder {
-	constructor(id) {
-		this.id = id;
+	constructor(name) {
+		this.id = uuid();
+		this.name = name;
 		this.files = [];
 	}
 

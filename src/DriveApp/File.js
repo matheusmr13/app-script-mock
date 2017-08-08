@@ -26,6 +26,13 @@ class File {
 	setName(name) {
 		this.name = name;
 	}
+	getMimeType() {
+		return this.mimeType;
+	}
+
+	setMimeType(mimeType) {
+		this.mimeType = mimeType;
+	}
 }
 
 export default File;
