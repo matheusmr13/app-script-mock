@@ -13,6 +13,7 @@
     "build": "webpack --config webpack.config.js && export NODE_PATH=./build && webpack --config webpack.config-test.js",
     "test": "npm run build && mocha ./build/test.js",
     "lint": "eslint ./test/**/*.js ./src/**/*.js",
+    "lint:fix": "eslint ./test/**/*.js ./src/**/*.js --fix",
     "coverage": "export NODE_PATH=./ && istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "prepublish": "npm run build",
     "flow": "flow"
