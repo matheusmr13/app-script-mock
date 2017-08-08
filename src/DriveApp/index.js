@@ -34,73 +34,73 @@ class DriveApp {
 	static addFile(child: File): Folder {
 		console.info(child);
 	}
-	static addFolder(child: Folder) : Folder {
+	static addFolder(child: Folder): Folder {
 
 	}
-	static continueFileIterator(continuationToken: String) : FileIterator {
+	static continueFileIterator(continuationToken: String): FileIterator {
 
 	}
-	static continueFolderIterator(continuationToken: String) : FolderIterator {
+	static continueFolderIterator(continuationToken: String): FolderIterator {
 
 	}
-	static createFile(blob: BlobSource ) : File {
+	static createFile(blob: BlobSource): File {
 
 	}
-	static createFile(name: String, content: String) : File {
+	static createFile(name: String, content: String): File {
 
 	}
-	static createFile(name: String, content: String, mimeType: String) : File {
+	static createFile(name: String, content: String, mimeType: String): File {
 
 	}
-	static createFolder(name: String) : Folder {
+	static createFolder(name: String): Folder {
 
 	}
-	static getFileById(id: String) : File {
+	static getFileById(id: String): File {
 
 	}
-	static getFiles() : FileIterator {
+	static getFiles(): FileIterator {
 
 	}
-	static getFilesByName(name: String) : FileIterator {
+	static getFilesByName(name: String): FileIterator {
 
 	}
-	static getFilesByType(mimeType: String) : FileIterator {
+	static getFilesByType(mimeType: String): FileIterator {
 
 	}
-	static getFolderById(id: String) : Folder {
+	static getFolderById(id: String): Folder {
 
 	}
-	static getFolders() : FolderIterator {
+	static getFolders(): FolderIterator {
 
 	}
-	static getFoldersByName(name: String) : FolderIterator {
+	static getFoldersByName(name: String): FolderIterator {
 
 	}
-	static getRootFolder() : Folder {
+	static getRootFolder(): Folder {
 
 	}
-	static getStorageLimit() : Integer {
+	static getStorageLimit(): Integer {
 
 	}
-	static getStorageUsed() : Integer {
+	static getStorageUsed(): Integer {
 
 	}
-	static getTrashedFiles() : FileIterator {
+	static getTrashedFiles(): FileIterator {
 
 	}
-	static getTrashedFolders() : FolderIterator {
+	static getTrashedFolders(): FolderIterator {
 
 	}
-	static removeFile(child: File) : Folder {
+	static removeFile(child: File): Folder {
 
 	}
-	static removeFolder( child: Folder) : Folder {
+	static removeFolder(child: Folder): Folder {
 
 	}
-	static searchFiles( params: String) : FileIterator {
+	static searchFiles(params: String): FileIterator {
 
 	}
-	static searchFolders( params: String) : FolderIterator {
+	static searchFolders(params: String): FolderIterator {
 
 	}
 }
