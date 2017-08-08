@@ -13,7 +13,7 @@ npm install --save-dev app-script-mock
 ```
 And before all your tests (you can use mocha's `before`)
 ```js
-var extendGlobal = require('app-script-mock');
+const extendGlobal = require('app-script-mock');
 describe('[...]', () => {
 	before(() => {
 		extendGlobal(global);
