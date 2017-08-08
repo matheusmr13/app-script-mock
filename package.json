@@ -1,10 +1,10 @@
 {
   "name": "app-script-mock",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Test your Google App Script",
   "author": "Matheus Martins do Rego",
   "license": "APACHE",
-  "main": "./build/index.bundle.js",
+  "main": "./build/app-script-mock.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:matheusmr13/app-script-mock.git"
