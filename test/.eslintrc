@@ -1,0 +1,15 @@
+{
+	"env": {
+		"mocha": true
+	},
+	"rules": {
+		"no-undef": 0
+	},
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"paths": ["build"]
+			}
+		}
+	}
+}

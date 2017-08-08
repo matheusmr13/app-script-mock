@@ -14,6 +14,7 @@ class File {
 
 	makeCopy(name, folder) {
 		const newFile = Object.assign(Object.create(Object.getPrototypeOf(this)), this);
+		newFile.setName(name);
 		folder.addFile(newFile);
 		return newFile;
 	}

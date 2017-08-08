@@ -1,22 +1,11 @@
 {
 	"extends": "airbnb/base",
 	"parser": "babel-eslint",
-	"env": {
-		"mocha": true
-	},
 	"rules": {
-		"global-require": 0,
 		"indent": [2, "tab"],
 		"import/no-dynamic-require": 0,
 		"no-tabs": 0,
 		"comma-dangle": ["error", "never"],
 		"import/no-extraneous-dependencies": 0
-	},
-	"settings": {
-		"import/resolver": {
-			"node": {
-				"paths": ["build"]
-			}
-		}
 	}
 }
