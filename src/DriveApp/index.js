@@ -91,7 +91,7 @@ class DriveApp {
 			);
 	}
 
-	static get_root_Folder(): Folder {
+	static getRootFolder(): Folder {
 		return DriveApp._root_;
 	}
 
@@ -108,9 +108,10 @@ class DriveApp {
 		return new FolderIterator(DriveApp._removedFolders_);
 	}
 	static removeFile(child: File): Folder {
+		DriveApp._removedFiles_.push(file);
+
 		const file = DriveApp._files_[child.getId()];
 		if (file) {
-			DriveApp._removedFiles_.push(file);
 			file.getFolder().removeFile(file);
 			delete DriveApp._files_[child.getId()];
 			return file.getFolder();
