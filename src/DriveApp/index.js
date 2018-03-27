@@ -108,9 +108,8 @@ class DriveApp {
 		return new FolderIterator(DriveApp._removedFolders_);
 	}
 	static removeFile(child: File): Folder {
-		DriveApp._removedFiles_.push(file);
-
 		const file = DriveApp._files_[child.getId()];
+		DriveApp._removedFiles_.push(file);
 		if (file) {
 			file.getFolder().removeFile(file);
 			delete DriveApp._files_[child.getId()];
